@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package userPackage;
+
+service User {
+    rpc createUser(user) returns (users);
+    rpc readUser(userId) returns (userDTO);
+    rpc updateUser(updateRequest) returns (users);
+    rpc deleteUser(userId) returns (users);
+}
+
+message user {
+    int32 id = 1; 
+    string nom = 2;
+    string prenom = 3;
+    string password = 4;
+}
+
+message userDTO {
+    int32 id = 1; 
+    string nom = 2;
+    string prenom = 3;
+}
+message users {
+    repeated userDTO users = 1;
+}
+message updateRequest {
+    int32 desiredId = 1;
+    string modifiedNom = 2;
+    string modifiedPrenom = 3;
+    string modifiedPassword = 4;
+}
+message userId {
+    int32 id = 1;
+}

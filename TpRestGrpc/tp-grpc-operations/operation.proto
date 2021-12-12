@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package operationPackage;
+
+service Operation {
+    rpc addition(operands) returns (result);
+    rpc soustraction(operands) returns (result);
+    rpc multiplication(operands) returns (result);
+    rpc division(operands) returns (result);
+}
+
+message operands {
+    int32 a = 1; 
+    int32 b = 2;
+}
+
+message result {
+    string result = 1;
+}
